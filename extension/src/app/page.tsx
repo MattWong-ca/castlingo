@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import React, { useState } from 'react';
 
 export default function Home() {
   // const [currentTabUrl, setCurrentTabUrl] = useState<string>("Loading...");
-
-  useEffect(() => {
+  const [counter, setCounter] = useState<number>(0);
+  const incrementCounter = () => setCounter(counter + 1);
+  // useEffect(() => {
     // setCurrentTabUrl('it works?');
     // Ensure the Chrome API is available before querying
     // if (typeof chrome !== "undefined" && chrome.tabs) {
@@ -23,17 +24,17 @@ export default function Home() {
     // } else {
     //   setCurrentTabUrl("Chrome API not available");
     // }
-  }, []);
+  // }, []);
  
-  const [message, setMessage] = useState<string>("Loaadsfding...");
+  // const [message, setMessage] = useState<string>("Loaadsfding...");
 
-  useEffect(() => {
-    // Simulate an asynchronous action (like fetching a URL)
-    setTimeout(() => {
-      setMessage("Hello from useEffect");
-      console.log("useEffect triggered");
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   // Simulate an asynchronous action (like fetching a URL)
+  //   setTimeout(() => {
+  //     setMessage("Hello from useEffect");
+  //     console.log("useEffect triggered");
+  //   }, 1000);
+  // }, []);
 
   const onClick = () => {
     console.log("it works")
@@ -44,7 +45,9 @@ export default function Home() {
       <div>Language learning on Warpcast</div>
       {/* <div onClick={() => onClick}>click me</div> */}
       {/* <div>{currentTabUrl}</div> */}
-      <div>{message}</div>
+      <span>{counter}</span>
+          <button onClick={incrementCounter}>+</button>
+
       <button onClick={() => onClick()}>click here!</button>
     </div>
   );
