@@ -17,7 +17,7 @@ export default function HomePage({ navigateToPage }) {
   };
 
   useEffect(() => {
-    fetch(`https://api.neynar.com/v2/farcaster/cast?identifier=${'https://warpcast.com/ether-fi/0x468b13ec'}&type=url`, options)
+    fetch(`https://api.neynar.com/v2/farcaster/cast?identifier=${currentTabUrl}&type=url`, options)
       .then((response) => response.json())
       .then((json) => {
         console.log(json.cast.text)
@@ -72,7 +72,7 @@ export default function HomePage({ navigateToPage }) {
 
       <div style={{ fontWeight: 'bold', fontSize: '30px', color: 'white', padding: '0px', margin: '10px 0px 0px 10px', fontFamily: "'Poppins', sans-serif" }}>Translation:</div>
 
-      <div style={{ borderRadius: '10px', backgroundColor: 'white', height: '345px', fontSize: '18px', color: blue, padding: '6px 10px 10px 10px', margin: '5px 10px 0px 10px', overflowY: 'auto', overflowX: 'hidden', overflowWrap: 'break-word', fontFamily: "'Poppins', sans-serif" }}>{castText}</div>
+      <div style={{ whiteSpace: 'pre-wrap', borderRadius: '10px', backgroundColor: 'white', height: '345px', fontSize: '18px', color: blue, padding: '6px 10px 10px 10px', margin: '5px 10px 0px 10px', overflowY: 'auto', overflowX: 'hidden', overflowWrap: 'break-word', fontFamily: "'Poppins', sans-serif" }}>{castText}</div>
 
       <div
         style={lastButtonStyle}
