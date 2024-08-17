@@ -2,33 +2,26 @@ import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
 
 export default function Index({ navigateToPage }) {
-  const [counter, setCounter] = useState(0);
-  const incrementCounter = () => setCounter(counter + 1);
+  // const [counter, setCounter] = useState(0);
+  // const incrementCounter = () => setCounter(counter + 1);
 
-  const [data, setData] = useState(null); // State to hold the fetched data
-  const [loading, setLoading] = useState(true); // State to track loading status
+  // const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
   const [isHovered, setIsHovered] = useState(false);
 
-  // const buttonStyle = {
-  //   cursor: isHovered ? 'pointer' : 'default',
-  //   padding: '10px',
-  //   backgroundColor: '#2e6cbf',
-  // };
-
-  useEffect(() => {
-    // useEffect to fetch data when the component mounts
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
-      .then((response) => response.json())
-      .then((json) => {
-        setData(json); // Set the fetched data to state
-        setLoading(false); // Set loading to false after data is fetched
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/posts/1')
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setData(json);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching data:', error);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
 
   const duolingoGreen = '#58CC02'; // Duolingo green color
@@ -36,10 +29,10 @@ export default function Index({ navigateToPage }) {
 
   const containerStyle = {
     padding: '10px',
-    height: '400px',
+    height: '500px',
     width: '300px',
     backgroundColor: duolingoGreen,
-    border: `10px solid ${blue}`,
+    // border: `10px solid ${blue}`,
     textAlign: 'center',
     position: 'relative',
     boxSizing: 'border-box'
@@ -55,25 +48,37 @@ export default function Index({ navigateToPage }) {
   };
 
   const lastButtonStyle = {
+    fontFamily: "'Poppins', sans-serif",
     padding: '10px 20px',
     backgroundColor: blue,
+    fontSize: '18px',
     color: 'white',
     border: 'none',
-    // marginTop: '10px',
-    borderRadius: '15px',
+    width: '260px',
+    borderRadius: '10px',
     cursor: isHovered ? 'pointer' : 'default',
     position: 'absolute',
-    bottom: '10px',
+    bottom: '20px',
     left: '50%',
     transform: 'translateX(-50%)'
   };
   const clickMe = () => {
     console.log("Button clicked!");
   }
-
+  const imageStyle = {
+    borderRadius: '50%',
+    width: '100px',
+    height: '100px',
+    marginTop: '30px'
+  };
   return (
     <div style={containerStyle}>
-      <h1 style={{ padding: '0px', margin: '0px' }}>Castlingo</h1>
+       <img 
+      src="/icons/duolingo.png" 
+      alt="Duolingo Icon" 
+      style={imageStyle}
+    />
+      <div style={{ fontWeight: 'bold', fontSize: '30px', color: 'white', padding: '0px', margin: '10px 0px 0px 0px', fontFamily: "'Poppins', sans-serif" }}>Castlingo</div>
       {/* {data ? (
         <div>
           <h2>{data.title}</h2>
@@ -82,7 +87,7 @@ export default function Index({ navigateToPage }) {
       ) : (
         <p>No data found</p>
       )} */}
-      <div>Language learning on Warpcast</div>
+      <div style={{ fontSize: '18px', color: 'white', padding: '0px', margin: '5px 0px 0px 0px', fontFamily: "'Poppins', sans-serif" }}>Language learning on Warpcast!</div>
       {/* <span>{counter}</span>
       <br />
       <button style={buttonStyle} onClick={incrementCounter}>+</button>
@@ -95,7 +100,7 @@ export default function Index({ navigateToPage }) {
         onMouseLeave={() => setIsHovered(false)}
         onClick={clickMe}
       >
-        Click Me!
+        Start Learning!
       </div>
     </div>
   );
