@@ -93,6 +93,9 @@ export default function HomePage({ navigateToPage }) {
       )} */}
       {/* <div>{currentTabUrl}</div> */}
       <div style={{ fontSize: '18px', color: 'white', padding: '0px', margin: '5px 0px 0px 0px', fontFamily: "'Poppins', sans-serif" }}>Language learning on Warpcast!</div>
+      
+      <div style={{ marginTop: '25px', width: '115px', margin: '20px auto 0 auto', backgroundColor: '#F1BF00', color: 'black', padding: '2px 3px 3px 2px', borderRadius: '5px', fontSize: '14px', fontFamily: "'Poppins', sans-serif"}}>Spanish 🇪🇸</div>
+      
       {/* <span>{counter}</span>
       <br />
       <button style={buttonStyle} onClick={incrementCounter}>+</button>
