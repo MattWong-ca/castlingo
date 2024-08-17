@@ -9,7 +9,11 @@ export default function HomePage({ navigateToPage }) {
   // const [loading, setLoading] = useState(true);
 
   const [isHovered, setIsHovered] = useState(false);
+// const [currentTabUrl, setCurrentTabUrl] = useState("Loading...");
 
+  // chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  //   setCurrentTabUrl(tabs[0].url);
+  // });
   // useEffect(() => {
   //   fetch('https://jsonplaceholder.typicode.com/posts/1')
   //     .then((response) => response.json())
@@ -87,6 +91,7 @@ export default function HomePage({ navigateToPage }) {
       ) : (
         <p>No data found</p>
       )} */}
+      {/* <div>{currentTabUrl}</div> */}
       <div style={{ fontSize: '18px', color: 'white', padding: '0px', margin: '5px 0px 0px 0px', fontFamily: "'Poppins', sans-serif" }}>Language learning on Warpcast!</div>
       {/* <span>{counter}</span>
       <br />

@@ -9,13 +9,6 @@ export default function Home() {
     setActivePage(page);
   };
 
-  useEffect(() => {
-    chrome.tabs.query({active: true, currentWindow: true}, async (tabs) => {
-      const url = tabs[0].url;
-      console.log(url)
-    });
-  });
-
   return (
     <>
       {activePage === 'home' && <HomePage navigateToPage={navigateToPage} />}
