@@ -1,7 +1,7 @@
 import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
 
-export default function Index({ navigateToPage }) {
+export default function HomePage({ navigateToPage }) {
   // const [counter, setCounter] = useState(0);
   // const incrementCounter = () => setCounter(counter + 1);
 
@@ -98,7 +98,7 @@ export default function Index({ navigateToPage }) {
         style={lastButtonStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={clickMe}
+        onClick={() => navigateToPage('new')}
       >
         Start Learning!
       </div>

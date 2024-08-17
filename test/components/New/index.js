@@ -23,7 +23,7 @@ export default function New({ navigateToPage}) {
           <p>{"[ - This is New page content - ]"}</p>
           {/* <span className={styles.counter}>{counter}</span>
           <button onClick={incrementCounter}>+</button> */}
-          <p onClick={() => navigateToPage('index')}>{"< Go Back"}</p>
+          <p onClick={() => navigateToPage('home')}>{"< Go Back"}</p>
         </main>
       </div>
     );
