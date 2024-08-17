@@ -4,11 +4,29 @@ import React, { useState, useEffect } from 'react';
 
 export default function HomePage({ navigateToPage }) {
   const [currentTabUrl, setCurrentTabUrl] = useState();
+  const [castText, setCastText] = useState();
 
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     setCurrentTabUrl(tabs[0].url);
     console.log(tabs[0].url)
   });
+
+  const options = {
+    method: 'GET',
+    headers: {accept: 'application/json', api_key: 'NEYNAR_API_DOCS'}
+  };
+
+  useEffect(() => {
+    fetch(`https://api.neynar.com/v2/farcaster/cast?identifier=${'https://warpcast.com/ether-fi/0x468b13ec'}&type=url`, options)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json.cast.text)
+        setCastText(json.cast.text);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, [currentTabUrl]);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -54,7 +72,7 @@ export default function HomePage({ navigateToPage }) {
 
       <div style={{ fontWeight: 'bold', fontSize: '30px', color: 'white', padding: '0px', margin: '10px 0px 0px 10px', fontFamily: "'Poppins', sans-serif" }}>Translation:</div>
 
-      <div style={{ height: '350px', fontSize: '18px', color: 'white', padding: '0px 10px 10px 10px', margin: '0px', overflowY: 'auto', overflowX: 'hidden', overflowWrap: 'break-word', fontFamily: "'Poppins', sans-serif" }}>{currentTabUrl}</div>
+      <div style={{ borderRadius: '10px', backgroundColor: 'white', height: '345px', fontSize: '18px', color: blue, padding: '6px 10px 10px 10px', margin: '5px 10px 0px 10px', overflowY: 'auto', overflowX: 'hidden', overflowWrap: 'break-word', fontFamily: "'Poppins', sans-serif" }}>{castText}</div>
 
       <div
         style={lastButtonStyle}
