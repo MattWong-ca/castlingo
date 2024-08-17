@@ -5,6 +5,9 @@ import React, { useState, useEffect } from 'react';
 export default function HomePage({ navigateToPage }) {
   const [currentTabUrl, setCurrentTabUrl] = useState();
   const [castText, setCastText] = useState();
+  const [openAIResponse, setOpenAIResponse] = useState();
+
+  const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY, dangerouslyAllowBrowser: true });
 
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     setCurrentTabUrl(tabs[0].url);
@@ -13,7 +16,7 @@ export default function HomePage({ navigateToPage }) {
 
   const options = {
     method: 'GET',
-    headers: {accept: 'application/json', api_key: 'NEYNAR_API_DOCS'}
+    headers: { accept: 'application/json', api_key: 'NEYNAR_API_DOCS' }
   };
 
   useEffect(() => {
@@ -27,6 +30,17 @@ export default function HomePage({ navigateToPage }) {
         console.error('Error fetching data:', error);
       });
   }, [currentTabUrl]);
+
+  useEffect(() => {
+    if (castText) {
+      const completion = openai.chat.completions.create({
+        messages: [{ role: "system", content: context + `Translate this to Spanish:\n${castText}` }],
+        model: "gpt-3.5-turbo",
+      });
+      console.log(completion.choices[0].message.content);
+      setOpenAIResponse(completion.choices[0].message.content);
+    }
+  }, [castText]);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -72,7 +86,7 @@ export default function HomePage({ navigateToPage }) {
 
       <div style={{ fontWeight: 'bold', fontSize: '30px', color: 'white', padding: '0px', margin: '10px 0px 0px 10px', fontFamily: "'Poppins', sans-serif" }}>Translation:</div>
 
-      <div style={{ whiteSpace: 'pre-wrap', borderRadius: '10px', backgroundColor: 'white', height: '345px', fontSize: '18px', color: blue, padding: '6px 10px 10px 10px', margin: '5px 10px 0px 10px', overflowY: 'auto', overflowX: 'hidden', overflowWrap: 'break-word', fontFamily: "'Poppins', sans-serif" }}>{castText}</div>
+      <div style={{ whiteSpace: 'pre-wrap', borderRadius: '10px', backgroundColor: 'white', height: '345px', fontSize: '18px', color: blue, padding: '6px 10px 10px 10px', margin: '5px 10px 0px 10px', overflowY: 'auto', overflowX: 'hidden', overflowWrap: 'break-word', fontFamily: "'Poppins', sans-serif" }}>{openAIResponse ?? 'Loading...'}</div>
 
       <div
         style={lastButtonStyle}
