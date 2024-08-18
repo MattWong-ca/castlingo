@@ -5,10 +5,10 @@
   "version": "0.0.1",
   "description": "AI-powered language learning on Warpcast!",
   "icons": {
-    "16": "/icons/icon16.png",
-    "32": "/icons/icon32.png",
-    "48": "/icons/icon48.png",
-    "192": "/icons/icon192.png"
+    "16": "/icons/duolingo.png",
+    "32": "/icons/duolingo.png",
+    "48": "/icons/duolingo.png",
+    "192": "/icons/duolingo.png"
   },
   "permissions": [
     "tabs"
