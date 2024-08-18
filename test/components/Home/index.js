@@ -106,7 +106,7 @@ export default function HomePage({ navigateToPage }) {
         style={lastButtonStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => navigateToPage('new')}
+        onClick={() => navigateToPage('translation')}
       >
         Start Learning!
       </div>
