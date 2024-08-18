@@ -1,7 +1,7 @@
 import styles from '../../styles/Pages.module.css';
 import React, { useState } from 'react';
 
-export default function QuizTime({ navigateToPage }) {
+export default function QuizTime({ navigateToPage, ...props }) {
     const [isHovered, setIsHovered] = useState(false);
 
     const duolingoGreen = '#58CC02';
@@ -41,7 +41,7 @@ export default function QuizTime({ navigateToPage }) {
                 style={lastButtonStyle}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                onClick={() => navigateToPage('translation')}
+                onClick={() => navigateToPage('q1', props)}
             >
                 Start
             </div>
