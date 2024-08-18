@@ -2,7 +2,7 @@
 import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
 
-export default function QuestionThree({ navigateToPage, ...props }) {
+export default function QuestionThree({ navigateToPage, addPoints, ...props }) {
     const { true_false_questions } = props;
 
     const [hoveredIndex, setHoveredIndex] = useState();
@@ -30,6 +30,11 @@ export default function QuestionThree({ navigateToPage, ...props }) {
         marginTop: '10px'
     };
 
+    const handleAnswerClick = (selectedAnswer) => {
+        addPoints(selectedAnswer === true_false_questions[0].correct_answer ? 100 : 0)
+        navigateToPage('q4', props);
+    };
+
     return (
         <div style={containerStyle}>
             <div style={{ lineHeight: 1.2, fontWeight: 'bold', fontSize: '26px', color: 'white', padding: '0px', margin: '10px 0px 0px 10px', fontFamily: "'Poppins', sans-serif" }}>{true_false_questions[0].question}</div>
@@ -49,7 +54,7 @@ export default function QuestionThree({ navigateToPage, ...props }) {
                     }}
                     onMouseEnter={() => setHoveredIndex(1)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => navigateToPage('q4', props)}
+                    onClick={() => handleAnswerClick('true')}
                 >
                     True
                 </div>
@@ -62,7 +67,7 @@ export default function QuestionThree({ navigateToPage, ...props }) {
                     }}
                     onMouseEnter={() => setHoveredIndex(2)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => navigateToPage('q4', props)}
+                    onClick={() => handleAnswerClick('false')}
                 >
                     False
                 </div>

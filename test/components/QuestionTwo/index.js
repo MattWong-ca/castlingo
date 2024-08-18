@@ -2,7 +2,7 @@
 import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
 
-export default function QuestionTwo({ navigateToPage, ...props }) {
+export default function QuestionTwo({ navigateToPage, addPoints, ...props }) {
     const { multiple_choice_questions } = props;
 
     const [hoveredIndex, setHoveredIndex] = useState();
@@ -30,6 +30,10 @@ export default function QuestionTwo({ navigateToPage, ...props }) {
         marginTop: '10px'
     };
 
+    const handleAnswerClick = (selectedAnswer) => {
+        addPoints(selectedAnswer === multiple_choice_questions[1].correct_answer ? 100 : 0)
+        navigateToPage('q3', props);
+    };
     return (
         <div style={containerStyle}>
             <div style={{ lineHeight: 1.2, fontWeight: 'bold', fontSize: '26px', color: 'white', padding: '0px', margin: '10px 0px 0px 10px', fontFamily: "'Poppins', sans-serif" }}>{multiple_choice_questions[1].question}</div>
@@ -50,7 +54,7 @@ export default function QuestionTwo({ navigateToPage, ...props }) {
                         }}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        onClick={() => navigateToPage('q3', props)}
+                        onClick={() => handleAnswerClick(answer)}
                     >
                         {answer}
                     </div>

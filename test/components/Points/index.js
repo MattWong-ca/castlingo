@@ -2,7 +2,7 @@
 import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
 
-export default function Points({ navigateToPage, ...props }) {
+export default function Points({ navigateToPage, points, ...props }) {
     const [isHovered, setIsHovered] = useState(false);
     const duolingoGreen = '#58CC02';
     const blue = '#2e6cbf';
@@ -59,7 +59,7 @@ export default function Points({ navigateToPage, ...props }) {
     return (
         <div style={{ ...containerStyle, backgroundImage: 'url(/icons/confetti.gif)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
             <div style={circleStyle}>
-                <div style={pointsTextStyle}>+300</div>
+                <div style={pointsTextStyle}>+{points}</div>
                 <div style={subTextStyle}>points!</div>
             </div>
             <div
