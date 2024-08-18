@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HomePage from '../components/Home';
 import Translation from '../components/Translation';
 import Phrases from '../components/PhraseByPhrase';
+import QuizTime from '../components/QuizTime';
 
 export default function Home() {
   const [activePage, setActivePage] = useState('home');
@@ -17,6 +18,7 @@ export default function Home() {
       {activePage === 'home' && <HomePage navigateToPage={navigateToPage} />}
       {activePage === 'translation' && <Translation navigateToPage={navigateToPage} />}
       {activePage === 'phrases' && <Phrases navigateToPage={navigateToPage} {...pageProps} />}
+      {activePage === 'quiztime' && <QuizTime navigateToPage={navigateToPage} {...pageProps} />}
     </>
   );
 }
