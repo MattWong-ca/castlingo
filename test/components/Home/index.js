@@ -66,9 +66,7 @@ export default function HomePage({ navigateToPage }) {
     left: '50%',
     transform: 'translateX(-50%)'
   };
-  const clickMe = () => {
-    console.log("Button clicked!");
-  }
+
   const imageStyle = {
     borderRadius: '50%',
     width: '100px',

@@ -2,7 +2,7 @@
 import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
 
-export default function QuestionOne({ navigateToPage, ...props }) {
+export default function QuestionTwo({ navigateToPage, ...props }) {
     const { multiple_choice_questions } = props;
 
     const [hoveredIndex, setHoveredIndex] = useState();
