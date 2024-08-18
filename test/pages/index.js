@@ -5,6 +5,9 @@ import Phrases from '../components/PhraseByPhrase';
 import QuizTime from '../components/QuizTime';
 import QuestionOne from '../components/QuestionOne';
 import QuestionTwo from '../components/QuestionTwo';
+import QuestionThree from '../components/QuestionThree';
+import QuestionFour from '../components/QuestionFour';
+import Points from '../components/Points';
 
 export default function Home() {
   const [activePage, setActivePage] = useState('home');
@@ -23,6 +26,9 @@ export default function Home() {
       {activePage === 'quiztime' && <QuizTime navigateToPage={navigateToPage} {...pageProps} />}
       {activePage === 'q1' && <QuestionOne navigateToPage={navigateToPage} {...pageProps} />}
       {activePage === 'q2' && <QuestionTwo navigateToPage={navigateToPage} {...pageProps} />}
+      {activePage === 'q3' && <QuestionThree navigateToPage={navigateToPage} {...pageProps} />}
+      {activePage === 'q4' && <QuestionFour navigateToPage={navigateToPage} {...pageProps} />}
+      {activePage === 'points' && <Points navigateToPage={navigateToPage} {...pageProps} />}
     </>
   );
 }

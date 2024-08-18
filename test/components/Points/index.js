@@ -50,7 +50,7 @@ export default function QuestionOne({ navigateToPage, ...props }) {
                         }}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        onClick={() => navigateToPage('q3', props)}
+                        onClick={() => navigateToPage('q4', props)}
                     >
                         {answer}
                     </div>
