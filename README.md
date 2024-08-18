@@ -16,13 +16,18 @@ Most importantly, this app provides a **real-world** learning experience! Tradit
 <img width="817" alt="Screenshot 2024-08-18 at 6 45 25 PM" src="https://github.com/user-attachments/assets/4dd0877c-21f7-4a64-8714-d0f032e30709">
 
 # 📝 Setup
+*Note: you'll need your own OpenAI API key to run it locally!*
+
 1. In terminal, `git clone https://github.com/MattWong-ca/castlingo.git`
-2. Head to `chrome://extensions/` on Chrome
-3. Turn on `Developer mode` (top right)
-4. Click `Load unpacked` (top left)
-5. Click on /castlingo --> /extension --> /out, and select the `out` folder
-6. Extension should be installed! Pin it and head to a Warpcast cast (eg. [this one](https://warpcast.com/rish/0x5f1214ca))
-7. Click the extension, and start learning!
+   - `cd` into the repo, and create a `.env` file
+   - Add `NEXT_PUBLIC_OPENAI_API_KEY="YOUR_API_KEY"` and replace `YOUR_API_KEY` with your OpenAI API key
+   - Run the command: `npm run build` (this should update the `out` folder)
+3. Head to `chrome://extensions/` on Chrome
+4. Turn on `Developer mode` (top right)
+5. Click `Load unpacked` (top left)
+6. Click on /castlingo --> /extension --> /out, and select the `out` folder
+7. Extension should be installed! Pin it and head to a Warpcast cast (eg. [this one](https://warpcast.com/rish/0x5f1214ca))
+8. Click the extension, and start learning!
 
 # 🛠️ Tech Stack
 ➔ Chrome API: fetches the current tab's URL
