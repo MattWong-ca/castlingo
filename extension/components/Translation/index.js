@@ -1,7 +1,7 @@
 "use client";
 import styles from '../../styles/Pages.module.css';
 import React, { useState, useEffect } from 'react';
-import OpenAI from "openai";
+import OpenAI from "openai/index.mjs";
 
 export default function Translation({ navigateToPage }) {
   const [currentTabUrl, setCurrentTabUrl] = useState();
