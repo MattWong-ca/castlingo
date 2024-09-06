@@ -1,7 +1,7 @@
 # 🦉 Castlingo
-Demo video: [link](https://youtu.be/NxvTi5mbbgo)
+Castlingo contract: [0x2A6123eEDea57303d2034f60A62C0C1529f06752](https://sepolia.lineascan.build/address/0x2A6123eEDea57303d2034f60A62C0C1529f06752)
 <br/>
-DoraHacks: [link](https://dorahacks.io/buidl/14840)
+Streak NFTs: [0xb861d6d79123ADa308E5F4030F458b402E2D131A](https://sepolia.lineascan.build/address/0xb861d6d79123ada308e5f4030f458b402e2d131a)
 
 <img width="894" alt="about" src="https://github.com/user-attachments/assets/5125596f-ab96-47b1-8938-5feef96ee5ce">
 
